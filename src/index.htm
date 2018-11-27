@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Coding Template</title>
+  <link rel="stylesheet" type="text/css" href="bundle.css">
+</head>
+
+<body>
+
+    <ul id="NavigationPanel">
+        <li><a class="active" href="index.htm">Create Tamagotchi</a></li>
+        <li><a href="loadTama.htm">Load Tamagotchi</a></li>
+        <li><a href="#contact">Tasks</a></li>
+    </ul>
+
+  <div id="creationBlock">
+    <h2>Create your Tamagotchi</h2>
+
+    <!-- Tamagotchi creation form, input and so on. -->
+    <form>
+      <input type="text" id="userNameCreation" placeholder="Username">
+      <br>
+      <br>
+      <input type="text" id="tamagotchiNameInput" placeholder="Tamagotchi Name">
+      <br>
+      
+      <p>Gender:</p>
+        <select>
+          <option id="Male">Male</option>
+          <option id="Female">Female</option>
+        </select>
+    </form>
+    <br>
+
+    <button type="button" id="createTamagotchi">Create</button> 
+    <button type="button" id="cancel">Cancel</button>
+
+  </div>
+  <script src="bundle.js"></script>
+</body>
+</html>

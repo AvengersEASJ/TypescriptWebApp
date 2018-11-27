@@ -1,0 +1,50 @@
+#NavigationPanel{
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /* Giver den aktive side på navpanelen en farve, så man kan se hvor man er */
+    li a.active{
+        color: white;
+        background-color: rgba(255, 196, 0, 0.788);
+    }
+    
+    /* Skifter farven på navpanel når man hover musen over.*/
+    li a:hover {
+        background-color: rgba(251, 255, 44, 0.788);
+    }
+
+}
+
+#creationBlock{
+    background-color: rgba(255, 215, 38, 0.233);
+    
+}
+
+#loadBlock{
+    background-color: rgba(255, 215, 38, 0.233);
+}
+
+h2 {
+    color: black;
+}
+
+body{
+    margin: 0;
+}
