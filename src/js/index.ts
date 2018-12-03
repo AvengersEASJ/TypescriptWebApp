@@ -19,6 +19,7 @@ interface ITask{
 interface IUser{
     id: number
     userName: string
+    password: string
 }
 
 interface IFriend{
@@ -31,7 +32,13 @@ interface IFriend{
     boredom: number
 }
 
+//Variabler
+let userIDfromName: number;
+
 //Inputs
+let loginUsernameInput: HTMLInputElement = <HTMLInputElement>document.getElementById("loginUserNameInput")
+let loginPasswordInput: HTMLInputElement = <HTMLInputElement>document.getElementById("loginPasswordInput")
+
 let taskUsernameInput: HTMLInputElement = <HTMLInputElement>document.getElementById("taskUserNameInput")
 let taskFriendnameInput: HTMLInputElement = <HTMLInputElement>document.getElementById("taskFriendNameInput")
 let taskNameInput: HTMLInputElement = <HTMLInputElement>document.getElementById("taskName")
@@ -43,11 +50,48 @@ let allTasksOutput: HTMLDivElement = <HTMLDivElement>document.getElementById("ta
 let taskRewards: HTMLSelectElement = <HTMLSelectElement>document.getElementById("taskRewards");
 
 //Buttons
+let LoginButtonElement: HTMLButtonElement = <HTMLButtonElement>document.getElementById("LoginButton");
+LoginButtonElement.onclick = CheckLogin;
+
 let HentTaskListeButtonElement: HTMLButtonElement = <HTMLButtonElement>document.getElementById("loadTaskButton");
 HentTaskListeButtonElement.onclick = GetAllTasks;
 
 let OpretTaskButtonElement: HTMLButtonElement = <HTMLButtonElement>document.getElementById("createTaskButton");
 OpretTaskButtonElement.onclick = PostTask;
+
+//Functions
+
+//User functions
+
+//Check om Username og Password matcher.
+function CheckLogin(): void{
+    axios.get<IUser[]>(webserviceUri + "User")
+    .then(function (response: AxiosResponse<IUser[]>): void {
+        let loginUsername = loginUsernameInput.value;
+        let loginPassword = loginPasswordInput.value;
+        let loginNotFound: Boolean = true;
+
+        response.data.forEach((user: IUser) => {
+            if(user.userName == loginUsername && user.password == loginPassword){
+                loginNotFound = false;
+                window.location.href = "https://tamagotchiwebapp.azurewebsites.net/createTama.htm";
+
+            }
+            
+        });
+        if (loginNotFound)
+        alert("Username and Password does not match!\nTIP: Both username and password is case sensitive!")
+    })
+    .catch(function (error: AxiosError): void { 
+        if (error.response) {
+            alert(error);
+        } else {
+            alert(error);
+        }
+    });
+}
+
+
 
 //TaskFunctions
 
@@ -82,8 +126,9 @@ function GetAllTasks(): void{
 //Opret Tasks
 function PostTask(){
 
+
     //Variabler bliver sat til input values.
-    let newTaskUsername: number =+ taskUsernameInput.value
+    let newTaskUsername: number =+ taskUsernameInput.value;
     let newTaskTamagotchiName: number =+ taskFriendnameInput.value
     let newTask: string = taskNameInput.value;
     let newTaskReward: number = taskRewards.options.selectedIndex
@@ -96,4 +141,10 @@ function PostTask(){
     .catch((error: AxiosError) => { console.log(error); });
     
 }
+
+//Slet Tasks
+
+
+
+//Slet alle Tasks
 

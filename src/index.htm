@@ -8,35 +8,18 @@
 
 <body>
 
-    <ul id="NavigationPanel">
-        <li><a class="active" href="index.htm">Create Tamagotchi</a></li>
-        <li><a href="loadTama.htm">Load Tamagotchi</a></li>
-        <li><a href="task.htm">Tasks</a></li>
-    </ul>
+<h1>Welcome</h1>
+<h2>Start your new IFriend adventure now!</h2>
 
-  <div id="creationBlock">
-    <h2>Create your Tamagotchi</h2>
-
-    <!-- Tamagotchi creation form, input and so on. -->
-    <form>
-      <input type="text" id="userNameCreation" placeholder="Username">
-      <br>
-      <br>
-      <input type="text" id="tamagotchiNameInput" placeholder="Tamagotchi Name">
-      <br>
-      
-      <p>Gender:</p>
-        <select>
-          <option id="Male">Male</option>
-          <option id="Female">Female</option>
-        </select>
-    </form>
-    <br>
-
-    <button type="button" id="createTamagotchi">Create</button> 
-    <button type="button" id="cancel">Cancel</button>
-
+  <div id="loginBlock">
+  <input type="text" id="loginUserNameInput" placeholder="username">
+  <input type="password" id="loginPasswordInput" placeholder="password">
+  <br>
+  <br>
+  <button type="button" id="LoginButton">Login</button>
+  <button type="button" id="NewUserButton">New User</button>
   </div>
+
   <script src="bundle.js"></script>
 </body>
 </html>
